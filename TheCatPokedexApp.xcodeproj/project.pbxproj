@@ -29,14 +29,57 @@
 		221E61F82D51442A00E3785A /* TheCatPokedexAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheCatPokedexAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		221E62242D5156E700E3785A /* Exceptions for "TheCatPokedexApp" folder in "TheCatPokedexApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 221E61DB2D51442800E3785A /* TheCatPokedexApp */;
+		};
+		221E62C32D5286A500E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "TheCatPokedexApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CatsMockData.json,
+				CatsPageMockData.json,
+			);
+			target = 221E61DB2D51442800E3785A /* TheCatPokedexApp */;
+		};
+		221E63052D528FC200E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "TheCatPokedexAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CatsPageMockData.json,
+			);
+			target = 221E61ED2D51442A00E3785A /* TheCatPokedexAppTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		221E63062D528FC200E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "Compile Sources" phase from "TheCatPokedexAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 221E61EA2D51442A00E3785A /* Sources */;
+			membershipExceptions = (
+				CatsPageMockData.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		221E61DE2D51442800E3785A /* TheCatPokedexApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				221E62242D5156E700E3785A /* Exceptions for "TheCatPokedexApp" folder in "TheCatPokedexApp" target */,
+			);
 			path = TheCatPokedexApp;
 			sourceTree = "<group>";
 		};
 		221E61F12D51442A00E3785A /* TheCatPokedexAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				221E62C32D5286A500E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "TheCatPokedexApp" target */,
+				221E63052D528FC200E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "TheCatPokedexAppTests" target */,
+				221E63062D528FC200E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "Compile Sources" phase from "TheCatPokedexAppTests" target */,
+			);
 			path = TheCatPokedexAppTests;
 			sourceTree = "<group>";
 		};
@@ -271,6 +314,8 @@
 /* Begin XCBuildConfiguration section */
 		221E62002D51442A00E3785A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 221E61DE2D51442800E3785A /* TheCatPokedexApp */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -334,6 +379,8 @@
 		};
 		221E62012D51442A00E3785A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 221E61DE2D51442800E3785A /* TheCatPokedexApp */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -399,6 +446,7 @@
 				DEVELOPMENT_TEAM = 2U49T83TPH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheCatPokedexApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +476,7 @@
 				DEVELOPMENT_TEAM = 2U49T83TPH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheCatPokedexApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -10,11 +10,24 @@ import SwiftData
 
 @main
 struct TheCatPokedexAppApp: App {
+    @StateObject private var viewModel: ListCatViewModel
+
+    init() {
+        if ProcessInfo.processInfo.arguments.contains("UITesting") {
+            let mockService = CatApiServiceMock()
+            _viewModel = StateObject(wrappedValue: ListCatViewModel(service: mockService))
+        } else {
+            let realService = CatApiService()
+            _viewModel = StateObject(wrappedValue: ListCatViewModel(service: realService))
+        }
+    }
+
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            FavoriteCat.self,
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: ProcessInfo.processInfo.arguments.contains("UITesting") ? true : false)
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
@@ -25,7 +38,25 @@ struct TheCatPokedexAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+
+            TabView {
+                Tab("Home", systemImage: "house") {
+                    ListCatView(viewModel: viewModel)
+                }
+                .accessibilityIdentifier("Home")
+
+                Tab("Favorites", systemImage: "heart.fill") {
+                    ListFavoritesCat(viewModel: FavoritesCatViewModel())
+                }
+                .accessibilityIdentifier("Favorites")
+            }
+            .tint(.indigo)
+            .environment(\.appGradient, LinearGradient(
+                gradient: Gradient(colors: [Color.white, Color.brown.opacity(0.8)]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ))
+
         }
         .modelContainer(sharedModelContainer)
     }
