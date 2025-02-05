@@ -13,7 +13,6 @@ protocol CatCellViewModelProtocol: ObservableObject {
 
 /// View Model responsable of Home cat view logic like filter, pagination, load cats.
 class HomeCatViewModel: CatCellViewModelProtocol {
-
     @Published var cats: [CatData] = []
     @Published var viewState: ViewStatesEnum = .initialLoading
     @Published var filteredCats: [CatData] = []
@@ -34,6 +33,7 @@ class HomeCatViewModel: CatCellViewModelProtocol {
         }
     }
 
+    /// Handle pagination fetching next page
     func loadMoreCats() async {
         page += 1
         await fetchCats(page: page, isRefreshing: false )
@@ -62,6 +62,7 @@ class HomeCatViewModel: CatCellViewModelProtocol {
         }
     }
 
+    /// Handle first data fetch and pull to refresh
     func reloadCats() async {
         page = 0
         await fetchCats(page: page, isRefreshing: true)

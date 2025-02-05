@@ -18,6 +18,7 @@ class CatDetailsViewModel: ObservableObject {
         self.cat = cat
     }
 
+    /// Check if our cat is already saved
     func checkIsFavorite() {
         let fetchDescriptor = FetchDescriptor<FavoriteCat>()
         let data = try? modelContext?.fetch(fetchDescriptor)
@@ -32,6 +33,7 @@ class CatDetailsViewModel: ObservableObject {
         }
     }
 
+    /// Add cat to our context
     private func addToFavorites() {
         let newFavoriteCat = FavoriteCat(cat: cat)
         modelContext?.insert(newFavoriteCat)
@@ -46,6 +48,7 @@ class CatDetailsViewModel: ObservableObject {
         }
     }
 
+    /// Remove cat of out context
     private func removeFromFavorites() {
         let fetchDescriptor = FetchDescriptor<FavoriteCat>()
         let data = try? modelContext?.fetch(fetchDescriptor)
