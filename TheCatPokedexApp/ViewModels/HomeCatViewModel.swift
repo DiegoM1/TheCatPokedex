@@ -15,7 +15,7 @@ protocol CatCellViewModelProtocol: ObservableObject {
 class HomeCatViewModel: CatCellViewModelProtocol {
 
     @Published var cats: [CatData] = []
-    @Published var viewState: ViewStatesEnum = .error
+    @Published var viewState: ViewStatesEnum = .initialLoading
     @Published var filteredCats: [CatData] = []
     var page = 0
     var service: CatApiServiceProtocol
