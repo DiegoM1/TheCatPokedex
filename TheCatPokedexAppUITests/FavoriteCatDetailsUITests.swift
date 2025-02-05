@@ -9,9 +9,13 @@ import XCTest
 
 final class FavoriteCatDetailsUITests: XCTestCase {
 
+    let app = XCUIApplication()
+
     override func setUpWithError() throws {
         continueAfterFailure = false
-
+        
+        app.launchArguments.append("UITesting")
+        app.launch()
     }
 
     override func tearDownWithError() throws {
@@ -20,10 +24,6 @@ final class FavoriteCatDetailsUITests: XCTestCase {
 
     func testEmptyFavoriteCats() throws {
         // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
-
         let favorites = app.buttons["Favorites"]
         favorites.tap()
 
@@ -33,11 +33,6 @@ final class FavoriteCatDetailsUITests: XCTestCase {
     }
 
     func testValidateFavoriteCatAppears() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
-
         let firstCell = app.collectionViews.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "List should load")
         firstCell.tap()
@@ -64,10 +59,6 @@ final class FavoriteCatDetailsUITests: XCTestCase {
     }
 
     func testNavigationToFavoriteCatDetails() throws {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
-        
         let firstCell = app.collectionViews.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "List should load")
         firstCell.tap()

@@ -13,34 +13,25 @@ final class ListCatViewUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        
+        app.launchArguments.append("UITesting")
+        app.launch()
     }
 
     func testNavigationTitleExists() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         XCTAssertTrue(app.navigationBars["The cat pokedex"].exists, "The navigation title should be visible")
     }
 
     func testCatListLoadsSuccessfully() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         let firstCell = app.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "The first cat cell should appear within 5 seconds")
     }
 
     func testSearchBarExists() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         XCTAssertTrue(app.searchFields["Search by breed"].exists, "Search bar should be visible")
     }
 
     func testPaginationTriggersOnScroll() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         let list = app.collectionViews["catList"]
 
         list.swipeUp()
@@ -50,11 +41,7 @@ final class ListCatViewUITests: XCTestCase {
         XCTAssertTrue(loadingIndicator.waitForExistence(timeout: 5),  "Loading indicator should appear when fetching more cats")
     }
 
-    func testNavigationToCatDetails() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
-        let firstCell = app.cells.firstMatch
+    func testNavigationToCatDetails() {        let firstCell = app.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "First cat cell should exist")
 
         firstCell.tap()

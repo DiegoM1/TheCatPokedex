@@ -13,16 +13,15 @@ final class CatDetailsViewUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+
+        app.launchArguments.append("UITesting")
+        app.launch()
     }
 
     func testCatDetailsViewDisplaysCorrectData() throws {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         let firstCell = app.collectionViews.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "List should load")
         firstCell.tap()
-
 
         let detailsView = app.scrollViews["CatDetailsView"]
         XCTAssertTrue(detailsView.waitForExistence(timeout: 5), "CatDetailsView should appear")
@@ -46,9 +45,6 @@ final class CatDetailsViewUITests: XCTestCase {
     }
 
     func testCatDetailsViewBackButtonWorks() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         let firstCell = app.collectionViews.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "List should load")
         firstCell.tap()
@@ -63,9 +59,6 @@ final class CatDetailsViewUITests: XCTestCase {
     }
 
     func testNavigationToWebView() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         let firstCell = app.collectionViews.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "List should load")
         firstCell.tap()
@@ -77,9 +70,6 @@ final class CatDetailsViewUITests: XCTestCase {
     }
 
     func testWebViewBackButtonWorks() {
-        let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
-        app.launch()
         let firstCell = app.collectionViews.cells.firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "List should load")
         firstCell.tap()
