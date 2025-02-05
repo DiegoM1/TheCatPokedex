@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+/// View Model responsable of favories cat logic like showing cats from swiftData.
 class FavoritesCatViewModel: CatCellViewModelProtocol {
     var modelContext: ModelContext?
     @Published var cats: [CatData] = []

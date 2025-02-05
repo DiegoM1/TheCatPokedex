@@ -7,8 +7,8 @@
 
 import Foundation
 
+/// Cat api service handle api calls to fetch cats data
 class CatApiService: CatApiServiceProtocol {
-
     private let defaultUrl = "https://api.thecatapi.com/"
 
     func fetchCatsWithBreedsInfo(limit: Int = 10, page: Int = 0) async throws -> [CatData] {

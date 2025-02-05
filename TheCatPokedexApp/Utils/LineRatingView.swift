@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Rating view using lines.
 struct LineRatingView: View {
     let rating: Int
     let maxRating: Int = 5

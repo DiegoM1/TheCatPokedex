@@ -8,17 +8,18 @@
 import SwiftUI
 import SwiftData
 
+/// Initial app view
 @main
 struct TheCatPokedexAppApp: App {
-    @StateObject private var viewModel: ListCatViewModel
+    @StateObject private var viewModel: HomeCatViewModel
 
     init() {
         if ProcessInfo.processInfo.arguments.contains("UITesting") {
             let mockService = CatApiServiceMock()
-            _viewModel = StateObject(wrappedValue: ListCatViewModel(service: mockService))
+            _viewModel = StateObject(wrappedValue: HomeCatViewModel(service: mockService))
         } else {
             let realService = CatApiService()
-            _viewModel = StateObject(wrappedValue: ListCatViewModel(service: realService))
+            _viewModel = StateObject(wrappedValue: HomeCatViewModel(service: realService))
         }
     }
 
@@ -38,10 +39,9 @@ struct TheCatPokedexAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-
             TabView {
                 Tab("Home", systemImage: "house") {
-                    ListCatView(viewModel: viewModel)
+                    HomeCatView(viewModel: viewModel)
                 }
                 .accessibilityIdentifier("Home")
 

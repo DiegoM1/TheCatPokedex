@@ -10,12 +10,12 @@ import XCTest
 
 final class ListCatViewModelTests: XCTestCase {
 
-    var viewModel: ListCatViewModel!
+    var viewModel: HomeCatViewModel!
     var mockService: CatApiServiceMock!
 
     override func setUpWithError() throws {
         mockService = CatApiServiceMock()
-        viewModel = ListCatViewModel(service: mockService)
+        viewModel = HomeCatViewModel(service: mockService)
     }
 
     override func tearDownWithError() throws {

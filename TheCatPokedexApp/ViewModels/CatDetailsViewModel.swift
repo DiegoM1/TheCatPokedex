@@ -8,8 +8,8 @@
 import SwiftUI
 import SwiftData
 
+/// View Model responsable of Cat details view logic like add, remove favorite cat
 class CatDetailsViewModel: ObservableObject {
-
     var modelContext: ModelContext?
     @Published var cat: CatData
     @Published var isFavorite: Bool? = false

@@ -8,13 +8,13 @@
 import SwiftUI
 import SwiftData
 
-struct ListCatView: View {
+struct HomeCatView: View {
     @Environment(\.appGradient) private var gradient
     @Environment(\.modelContext) private var modelContext
-    @ObservedObject var viewModel: ListCatViewModel
+    @ObservedObject var viewModel: HomeCatViewModel
     @State var text = ""
 
-    init(viewModel: ListCatViewModel) {
+    init(viewModel: HomeCatViewModel) {
         self.viewModel = viewModel
     }
 
@@ -29,9 +29,10 @@ struct ListCatView: View {
                     if viewModel.viewState == .error {
                         ErrorView()
                     }
+                    
                     ForEach(viewModel.filteredCats) { cat in
                         NavigationLink(value: cat) {
-                            ListCatCellView<ListCatViewModel>(cat: cat)
+                            ListCatCellView<HomeCatViewModel>(cat: cat)
                                 .environmentObject(viewModel)
                                 .onAppear {
                                     if let last = viewModel.cats.last, cat.id == last.id {
@@ -80,34 +81,7 @@ struct ListCatView: View {
     }
 }
 
-extension ListCatView {
-
-    struct ErrorView : View {
-        var body: some View {
-            VStack(spacing: 16) {
-                Image(systemName: "key.slash.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.gray)
-                    .frame(width: 80, height: 80)
-
-                Text("API Key Not Found")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-
-                Text("It seems the required API key is missing or invalid. Please check your API key configuration.")
-                    .fontWeight(.light)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.black)
-            }
-            .padding()
-            .listRowBackground(Color.clear)
-            .cornerRadius(15)
-        }
-    }
-}
 #Preview {
-    ListCatView(viewModel: ListCatViewModel(service: CatApiService()))
+    HomeCatView(viewModel: HomeCatViewModel(service: CatApiService()))
         .modelContainer(for: FavoriteCat.self, inMemory: true)
 }

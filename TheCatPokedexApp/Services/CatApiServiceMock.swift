@@ -7,8 +7,8 @@
 
 import Foundation
 
+/// Cat api service mock for UnitTests purposes
 class CatApiServiceMock: CatApiServiceProtocol {
-
     private let defaultUrl = "https://api.thecatapi.com/"
     var shouldFail: Bool = false
 

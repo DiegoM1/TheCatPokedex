@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
+/// Protocol to make ListCatCellView suppot HomeCatViewModel and FavoriteCatViewModel
 protocol CatCellViewModelProtocol: ObservableObject {
     func getRatingValue(cat: CatData) -> Double?
 }
 
-class ListCatViewModel: CatCellViewModelProtocol {
+/// View Model responsable of Home cat view logic like filter, pagination, load cats.
+class HomeCatViewModel: CatCellViewModelProtocol {
 
     @Published var cats: [CatData] = []
-    @Published var viewState: ViewStatesEnum = .initialLoading
-z    @Published var filteredCats: [CatData] = []
+    @Published var viewState: ViewStatesEnum = .error
+    @Published var filteredCats: [CatData] = []
     var page = 0
     var service: CatApiServiceProtocol
 

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Enum to control view states
 enum ViewStatesEnum {
     case initialLoading
     case nextPageLoading

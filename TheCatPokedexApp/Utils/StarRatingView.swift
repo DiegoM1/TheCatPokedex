@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Rating view using stars.
 struct StarRatingView: View {
     let rating: Double
 

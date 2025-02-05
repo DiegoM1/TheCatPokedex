@@ -40,15 +40,15 @@
 		221E62C32D5286A500E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "TheCatPokedexApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				CatsMockData.json,
-				CatsPageMockData.json,
+				MockData/CatsMockData.json,
+				MockData/CatsPageMockData.json,
 			);
 			target = 221E61DB2D51442800E3785A /* TheCatPokedexApp */;
 		};
 		221E63052D528FC200E3785A /* Exceptions for "TheCatPokedexAppTests" folder in "TheCatPokedexAppTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				CatsPageMockData.json,
+				MockData/CatsPageMockData.json,
 			);
 			target = 221E61ED2D51442A00E3785A /* TheCatPokedexAppTests */;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 221E61EA2D51442A00E3785A /* Sources */;
 			membershipExceptions = (
-				CatsPageMockData.json,
+				MockData/CatsPageMockData.json,
 			);
 		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */

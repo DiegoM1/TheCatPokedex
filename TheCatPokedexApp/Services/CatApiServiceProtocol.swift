@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Cat api service protocol
 protocol CatApiServiceProtocol {
     func fetchCatsWithBreedsInfo(limit: Int, page: Int) async throws -> [CatData]
 }
