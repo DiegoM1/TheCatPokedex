@@ -20,7 +20,10 @@ First create a *.xcconfig file where you are gonna put your api key.
 Just plain text dont handle it like a string or something. After that double check on your project -> info -> configurations -> debug / release , setup your *.xcconfig file there and thats it you are ready to roll. 
 ## Demo
 
-Insert gif or link to demo
+|HomeCatView Demo(Pagination)| DetailsCatVIew | Add favorite cat flow|
+|---------|---------|-----------|
+|![HomeCatView](https://github.com/user-attachments/assets/d310c115-3d68-419e-8e17-f917b2c35096)|  ![DetailsCatView](https://github.com/user-attachments/assets/f750c4a5-3b79-4e6c-bf88-37d2a64d26f5) | ![FavoriteCatFlow](https://github.com/user-attachments/assets/6d87fdcb-ba7b-4125-bee4-b6dc8ca48bf8) |
+
 
 
 ## Features
