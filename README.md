@@ -47,7 +47,17 @@ Just plain text dont handle it like a string or something. After that double che
 
 ## Running Tests
 
-To run tests, You can do it manually using Xcode or you can install fastlane using `brew install fastlane`  and then run `fastlane ios unit_tests` or `fastlane ios ui_tests` in your terminal. You need to have an iphone 16 simulator or you can change the simulator name in fastfile. We are using iOS 18 to develop this app.
+To run tests, You can do it manually using Xcode or you can install fastlane using
+`brew install fastlane` 
+and then run
+
+`fastlane ios unit_tests`
+
+or 
+
+`fastlane ios ui_tests`
+
+in your terminal. You need to have an iphone 16 simulator or you can change the simulator name in fastfile. We are using iOS 18 to develop this app.
 
 ## Documentation
 
