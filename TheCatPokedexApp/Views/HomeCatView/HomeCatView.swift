@@ -25,7 +25,7 @@ struct HomeCatView: View {
                     if viewModel.viewState == .error {
                         ErrorView()
                     }
-                    
+
                     ForEach(viewModel.filteredCats) { cat in
                         NavigationLink(value: cat) {
                             ListCatCellView<HomeCatViewModel>(viewModel: viewModel, cat: cat)
@@ -37,7 +37,6 @@ struct HomeCatView: View {
                                     }
                                 }
                         }
-
                     }
                     .listRowBackground(Color.clear)
 
