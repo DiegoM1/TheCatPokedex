@@ -29,8 +29,7 @@ struct ListFavoritesCat: View {
                     List {
                         ForEach(viewModel.cats) { cat in
                             NavigationLink(value: cat) {
-                                ListCatCellView<FavoritesCatViewModel>(cat: cat)
-                                    .environmentObject(viewModel)
+                                ListCatCellView<FavoritesCatViewModel>(viewModel: viewModel, cat: cat)
                             }
                         }
                         .listRowBackground(Color.clear)

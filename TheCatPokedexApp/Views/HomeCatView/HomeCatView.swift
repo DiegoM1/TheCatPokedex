@@ -13,11 +13,7 @@ struct HomeCatView: View {
     @Environment(\.modelContext) private var modelContext
     @ObservedObject var viewModel: HomeCatViewModel
     @State var text = ""
-
-    init(viewModel: HomeCatViewModel) {
-        self.viewModel = viewModel
-    }
-
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
@@ -32,8 +28,7 @@ struct HomeCatView: View {
                     
                     ForEach(viewModel.filteredCats) { cat in
                         NavigationLink(value: cat) {
-                            ListCatCellView<HomeCatViewModel>(cat: cat)
-                                .environmentObject(viewModel)
+                            ListCatCellView<HomeCatViewModel>(viewModel: viewModel, cat: cat)
                                 .onAppear {
                                     if let last = viewModel.cats.last, cat.id == last.id {
                                         Task {
