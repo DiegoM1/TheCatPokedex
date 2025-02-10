@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListCatCellView<ViewModel: CatCellViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
+    @State var activeAnimation = false
     var cat: CatData
 
     var body: some View {
@@ -24,7 +25,11 @@ struct ListCatCellView<ViewModel: CatCellViewModelProtocol>: View {
                 }
                 .frame(width: 150, height: 150)
                 .fixedSize()
+                .scaleEffect(activeAnimation ? 1 : 0.8)
+                .opacity(activeAnimation ? 1 : 0.8)
+                .animation(.easeInOut(duration: 0.5), value: activeAnimation)
             }
+
             if let breed = cat.breeds.first {
                 VStack(alignment: .leading, spacing: 8) {
                     if let rating = viewModel.getRatingValue(cat: cat) {
@@ -51,6 +56,9 @@ struct ListCatCellView<ViewModel: CatCellViewModelProtocol>: View {
             }
 
             Spacer()
+        }
+        .onAppear {
+            activeAnimation = true
         }
     }
 }
