@@ -38,6 +38,7 @@ struct ListCatCellView<ViewModel: CatCellViewModelProtocol>: View {
                     Text(breed.name)
                         .font(.title)
                         .lineLimit(3)
+                        .shadow(color: .brown,radius: 3)
                         .multilineTextAlignment(.leading)
                     Text(breed.origin)
                         .font(.subheadline)
